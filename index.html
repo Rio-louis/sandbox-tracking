@@ -4,9 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sandbox Tracking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    form {
+      margin-top: 2rem;
+    }
+    input, textarea {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 300px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #3498db;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur mon site sandbox</h1>
-  <p>Ceci est une page de test pour le tracking.</p>
+  <h1>Bienvenue sur ma page sandbox avancée</h1>
+  <p>Teste différents éléments pour voir le tracking des événements.</p>
+
+  <button id="btn-achat">Ajouter au panier</button>
+  <button id="btn-newsletter">S'inscrire à la newsletter</button>
+  <button id="btn-demo">Demander une démo</button>
+
+  <form id="form-contact">
+    <h3>Contact rapide</h3>
+    <input type="text" id="nom" placeholder="Votre nom" required />
+    <input type="email" id="email" placeholder="Votre email" required />
+    <textarea id="message" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <a href="https://www.lemonde.fr" target="_blank" id="link-actu">Voir les actus</a>
+
+  <script>
+    // Fonction de tracking générique
+    function trackEvent(action, label) {
+      console.log(`Événement : ${action} | Élément : ${label}`);
+      // Tu peux ici envoyer l'événement vers GA, Matomo, ou ton backend
+    }
+
+    // Clics sur boutons
+    document.getElementById("btn-achat").addEventListener("click", function() {
+      trackEvent("click", "ajout_panier");
+    });
+
+    document.getElementById("btn-newsletter").addEventListener("click", function() {
+      trackEvent("click", "inscription_newsletter");
+    });
+
+    document.getElementById("btn-demo").addEventListener("click", function() {
+      trackEvent("click", "demande_demo");
+    });
+
+    // Soumission de formulaire
+    document.getElementById("form-contact").addEventListener("submit", function(e) {
+      e.preventDefault();
+      trackEvent("form_submit", "form_contact");
+      alert("Formulaire envoyé (simulé)");
+    });
+
+    // Clic sur lien externe
+    document.getElementById("link-actu").addEventListener("click", function() {
+      trackEvent("click", "lien_externe_lemonde");
+    });
+  </script>
 </body>
 </html>
