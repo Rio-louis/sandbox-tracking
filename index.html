@@ -82,8 +82,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <script>
     // Fonction de tracking générique
-    function trackEvent(action, label) {
-      console.log(`Événement : ${action} | Élément : ${label}`);
+   function trackEvent(action, label) {
+  console.log(`Événement : ${action} | Élément : ${label}`);
+  gtag('event', action, {
+    'event_category': 'sandbox',
+    'event_label': label
+  });
+}
       // Tu peux ici envoyer l'événement vers GA, Matomo, ou ton backend
     }
 
