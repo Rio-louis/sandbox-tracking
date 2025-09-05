@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NLC4TPD8');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sandbox ASSE Tracking</title>
+  <title>Sandbox Tracking</title>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LFY15DBJS1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NLC4TPD8');</script>
-
-  <!-- Google Analytics -->
-  https://www.googletagmanager.com/gtag/js?id=G-LFY15DBJS1</script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LFY15DBJS1');
-  </script>
-
-  <!-- Styles ASSE -->
+  gtag('config', 'G-LFY15DBJS1');
+</script>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 2rem;
-      background-color: #e8f5e9; /* Vert clair */
-      color: #1b5e20; /* Vert foncé */
+      background-color: #f4f4f4;
     }
-    h1, h2 {
-      color: #2e7d32;
+    h1 {
+      color: #2c3e50;
     }
     button {
       margin: 10px;
       padding: 10px 20px;
-      background-color: #388e3c;
+      background-color: #3498db;
       border: none;
       color: white;
       cursor: pointer;
       border-radius: 5px;
     }
     button:hover {
-      background-color: #2e7d32;
+      background-color: #2980b9;
     }
     form {
       margin-top: 2rem;
@@ -52,41 +49,20 @@
       margin: 10px 0;
       padding: 8px;
       width: 300px;
-      border: 1px solid #a5d6a7;
-      border-radius: 4px;
     }
     a {
       display: inline-block;
       margin-top: 2rem;
-      color: #388e3c;
+      color: #3498db;
       text-decoration: none;
-    }
-    img.logo-asse {
-      width: 120px;
-      margin-bottom: 1rem;
-    }
-    .intro {
-      background-color: #c8e6c9;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript>https://www.googletagmanager.com/ns.html?id=GTM-NLC4TPD8</iframe></noscript>
-
-  <!-- Logo ASSE -->
-  <img src="https://www.asse.fr/" alt="Logo AS Saint-Étienne" class="logo-asse" />
-
-  <!-- Intro ASSE -->
-  <div class="intro">
-    <h2>À propos de l'AS Saint-Étienne</h2>
-    <p>L'AS Saint-Étienne est l'un des clubs les plus emblématiques du football français, avec 10 titres de champion de France. Son histoire, ses supporters et son stade Geoffroy-Guichard font des Verts une légende du sport. <strong>Vert & Fier !</strong></p>
-    <button onclick="window.open('https://www.asse.fr', '_blank')" id="btn-asse">Visiter le site officiel de l'ASSE</button>
-  </div>
-
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLC4TPD8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <h1>Bienvenue sur ma page sandbox avancée</h1>
   <p>Teste différents éléments pour voir le tracking des événements.</p>
 
@@ -102,17 +78,21 @@
     <button type="submit">Envoyer</button>
   </form>
 
-  https://www.lemonde.frVoir les actus</a>
+  <a href="https://www.lemonde.fr" target="_blank" id="link-actu">Voir les actus</a>
 
   <script>
-    function trackEvent(action, label) {
-      console.log(`Événement : ${action} | Élément : ${label}`);
-      gtag('event', action, {
-        'event_category': 'sandbox',
-        'event_label': label
-      });
+    // Fonction de tracking générique
+   function trackEvent(action, label) {
+  console.log(`Événement : ${action} | Élément : ${label}`);
+  gtag('event', action, {
+    'event_category': 'sandbox',
+    'event_label': label
+  });
+}
+      // Tu peux ici envoyer l'événement vers GA, Matomo, ou ton backend
     }
 
+    // Clics sur boutons
     document.getElementById("btn-achat").addEventListener("click", function() {
       trackEvent("click", "ajout_panier");
     });
@@ -125,20 +105,17 @@
       trackEvent("click", "demande_demo");
     });
 
+    // Soumission de formulaire
     document.getElementById("form-contact").addEventListener("submit", function(e) {
       e.preventDefault();
       trackEvent("form_submit", "form_contact");
       alert("Formulaire envoyé (simulé)");
     });
 
+    // Clic sur lien externe
     document.getElementById("link-actu").addEventListener("click", function() {
       trackEvent("click", "lien_externe_lemonde");
-    });
-
-    document.getElementById("btn-asse").addEventListener("click", function() {
-      trackEvent("click", "lien_site_asse");
     });
   </script>
 </body>
 </html>
-
